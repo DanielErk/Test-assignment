@@ -1,1 +1,3 @@
-// Placeholder
+<?php
+echo "HI THERE!";
+?>
