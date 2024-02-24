@@ -1,5 +1,5 @@
 <?php
-function connectToPositionStackAPI($apiKey, $query) {
+function connectToPositionStackAPI($apiKey, $query): string {
     $url = "http://api.positionstack.com/v1/forward?access_key=$apiKey&query=" . urlencode($query);
 
     $options = [
@@ -19,11 +19,11 @@ function connectToPositionStackAPI($apiKey, $query) {
     return $result;
 }
 
-function parseAPIResponse($response) {
+function parseAPIResponse($response): array {
     return json_decode($response, true);
 }
 
-function getAPIDataParams($APIData) {
+function getAPIDataParams($APIData): array {
     $arrayCount = count($APIData["data"]);
     if ($arrayCount === 0) { //If no data was received correctly
         return array( //Set default values to skip this address in the order line
@@ -37,7 +37,7 @@ function getAPIDataParams($APIData) {
     );
     return $APIDataParams;
 }
-function getAPIData($apiKey, AddressData $address) {
+function getAPIData($apiKey, AddressData $address): ?array {
     $APIDataResult = connectToPositionStackAPI($apiKey, $address->getAddress());
     if ($APIDataResult === "An error occured while fetching the data") {
         return null;

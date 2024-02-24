@@ -14,31 +14,31 @@ class AddressData {
         $this->Distance = 0.00;
     }
 
-    public function getName() {
+    public function getName(): string {
         return $this->Name;
     }
-    public function getAddress() {
+    public function getAddress(): string {
         return $this->Address;
     }
 
-    public function getCoordinates() {
+    public function getCoordinates(): array {
         return [$this->latitude, $this->longitude];
     }
 
-    public function getDistance() {
+    public function getDistance(): string {
         return $this->Distance;
     }
     
-    public function updateCoordinates($latitude, $longitude) {
+    public function updateCoordinates($latitude, $longitude): void {
         $this->latitude = $latitude;
         $this->longitude = $longitude;
     }
 
-    public function updateDistance($distance) {
+    public function updateDistance($distance): void {
         $this->Distance = $distance;
     }
 }
-function splitNameAndAddress($address) {
+function splitNameAndAddress($address): array {
     $tempArr = explode(" - ", $address);
     $keys = array('Name', 'Address');
     $result = array_combine($keys, $tempArr);
@@ -46,10 +46,10 @@ function splitNameAndAddress($address) {
 }
 
 
-function updateAddressCoordinates($address, $coordinates) {
+function updateAddressCoordinates($address, $coordinates): void {
     $address->updateCoordinates($coordinates["latitude"], $coordinates["longitude"]);
 }
 
-function createAddressData($name, $address, $latitude, $longitude) {
+function createAddressData($name, $address, $latitude, $longitude): AddressData {
     return new AddressData($name, $address, $latitude, $longitude);
 }

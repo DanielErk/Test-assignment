@@ -16,8 +16,8 @@ $nameAndAddressADchieve = "Adchieve HQ - Sint Janssingel 92, 5211 DA 's-Hertogen
 
 $csvFilename = "CSV_Storage/addresses.csv";
 
-
-define('SORT_NUMBER_WIDTH', 10);
+// Widths for the CSV file
+define('SORT_NUMBER_WIDTH', 10); 
 define('DISTANCE_WIDTH', 20);
 define('NAME_WIDTH', 50);
 define('ADDRESS_WIDTH', 100);

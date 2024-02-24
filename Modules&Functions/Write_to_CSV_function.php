@@ -1,7 +1,7 @@
 <?php
 require_once 'Global_Variables/Config.php';
 
-function writeAddressesToCSV($addresses, $filename) {
+function writeAddressesToCSV($addresses, $filename): void {
     $file = fopen($filename, 'w');
     $counter = 0;
     if ($file) {
@@ -19,7 +19,7 @@ function writeAddressesToCSV($addresses, $filename) {
     }
 }
 
-function getConfigHeaders() {
+function getConfigHeaders(): array {
     return array(
         str_pad('Sortnumber', SORT_NUMBER_WIDTH),
         str_pad('Distance', DISTANCE_WIDTH),
@@ -28,7 +28,7 @@ function getConfigHeaders() {
     );
 }
 
-function getConfigValues($address, $counter) {
+function getConfigValues($address, $counter): array {
     return array(
         str_pad($counter, SORT_NUMBER_WIDTH),
         str_pad($address->getDistance() . " km", DISTANCE_WIDTH),

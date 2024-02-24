@@ -1,5 +1,5 @@
 <?php
-function calculateDistanceLogic($lat1, $lon1, $lat2, $lon2) {
+function calculateDistanceLogic($lat1, $lon1, $lat2, $lon2): string {
     $theta = $lon1 - $lon2;
     $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
     $dist = acos($dist);
@@ -8,11 +8,11 @@ function calculateDistanceLogic($lat1, $lon1, $lat2, $lon2) {
 
     return number_format($kilometers, 2, '.', '');
 }
-function compareByDistance($a, $b) {
+function compareByDistance($a, $b): string {
     return $a->getDistance() - $b->getDistance();
 }
 
-function calculateDistances($ADchieveAddress, $addresses) {
+function calculateDistances($ADchieveAddress, $addresses): void {
     $ADchieveCoordinates = $ADchieveAddress->getCoordinates();
 
     foreach ($addresses as $addressToCalculateDistance) {

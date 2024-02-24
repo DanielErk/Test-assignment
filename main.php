@@ -6,7 +6,7 @@ require_once 'Modules&Functions/Distance_functions.php';
 require_once 'Modules&Functions/Write_to_CSV_function.php';
 require_once 'Global_Variables/Config.php';
 
-function main() {
+function main(): void {
     global $apiKey, $addressData, $nameAndAddressADchieve, $csvFilename;
 
     $ADchieveAddress = processADchieveAddress($apiKey, $nameAndAddressADchieve);
@@ -18,7 +18,7 @@ function main() {
     writeAddressesToCSV($addresses, $csvFilename);
 }
 
-function processADchieveAddress($apiKey, $nameAndAddressADchieve) {
+function processADchieveAddress($apiKey, $nameAndAddressADchieve): AddressData {
     $nameAndAddressADchieveSplit = splitNameAndAddress($nameAndAddressADchieve);
     $ADchieveName = $nameAndAddressADchieveSplit["Name"];
     $ADchieveAddress = $nameAndAddressADchieveSplit["Address"];
@@ -30,7 +30,7 @@ function processADchieveAddress($apiKey, $nameAndAddressADchieve) {
     return $ADchieveAddress;
 }
 
-function processAddresses($apiKey, $addressData) {
+function processAddresses($apiKey, $addressData): array {
     $addresses = [];
 
     foreach ($addressData as $addressToSplit) {
