@@ -4,6 +4,11 @@ namespace App\Services;
 use App\Models\AddressData;
 
 class CSVWriter {
+    /**
+     * This method writes the address data to a CSV file.
+     * @param AddressData[] $addresses
+     * @param string $filename
+     */
     public static function writeToCSV(array $addresses, string $filename): void {
         $file = fopen($filename, 'w');
         fputcsv($file, ['SortNumber', 'Distance (km)', 'Name', 'Address']);

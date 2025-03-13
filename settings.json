@@ -3,11 +3,10 @@
     "textMateRules": [
       {
         "scope": [
-          // PHP variables
           "variable.other.php"
         ],
         "settings": {
-          "foreground": "#ff0000" // Set the desired color for PHP variables
+          "foreground": "#ff0000"
         }
       }
     ]
